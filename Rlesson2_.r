@@ -2,9 +2,6 @@
 #   Εισαγωγή Δεδομένων                                                      ####
 #   ____________________________________________________________________________
 
-# Σε περίπτωση προβλήματος στην κωδικοποίηση των χαρακτήρων
-Sys.setlocale(category = "LC_ALL", locale = "Greek")
-
 ##  ............................................................................
 ##  Από το περιβάλλον του Rstudio                                           ####
 ##  ............................................................................
@@ -15,20 +12,6 @@ Sys.setlocale(category = "LC_ALL", locale = "Greek")
 ##  ............................................................................
 ##  Με εντολές                                                              ####
 ##  ............................................................................
-
-
-### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
-### Αρχεία spss                                                             ####
-### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
-install.packages("foreign")
-library(foreign)
-salary = read.spss(file= "staffsurvey.sav", 
-				   to.data.frame = TRUE, 
-				   stringsAsFactors = FALSE)
-
-# Πηγή δεδομένων staffsurvey.sav
-# http://spss.allenandunwin.com.s3-website-ap-southeast-2.amazonaws.com/data-files.html#.W7PZYFT7Rdg
-
 
 
 ### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
@@ -45,23 +28,23 @@ pools = read.csv(file = "pools.csv")
 
 # Παράμετρος header
 pools = read.csv(file = "pools.csv",
-				 header = TRUE)
+                 header = TRUE)
 
 # Παράμετρος sep
 pools = read.csv(file = "pools.csv",
-				 header = TRUE,
-				 sep = ",")
+                 header = TRUE,
+                 sep = ",")
 
 # Παράμετρος dec
 pools = read.csv(file = "pools.csv",
-				 header = TRUE,
-				 sep = ",")
+                 header = TRUE,
+                 sep = ",")
 
 # Παράμετρος stringsAsFactors
 pools = read.csv(file = "pools.csv",
-				 header = TRUE,
-				 sep = ",",
-				 stringsAsFactors = TRUE)
+                 header = TRUE,
+                 sep = ",",
+                 stringsAsFactors = TRUE)
 
 
 # Προβολή δομής
@@ -86,3 +69,29 @@ pools = read.csv(file = "pools.csv",
 
 # Προβολή συνοπτικής περιγραφής
 
+
+
+### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
+### Αρχεία spss                                                             ####
+### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
+install.packages("foreign")
+library(foreign)
+salary = read.spss(file= "staffsurvey.sav", 
+                   to.data.frame = TRUE, 
+                   stringsAsFactors = FALSE)
+
+# Πηγή δεδομένων staffsurvey.sav
+# http://spss.allenandunwin.com.s3-website-ap-southeast-2.amazonaws.com/data-files.html#.W7PZYFT7Rdg
+
+
+
+### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
+### Αρχεία Excel                                                            ####
+### . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ..
+install.packages("readxl")
+library(readxl)
+pop_1 <- read_excel("urbanpop.xlsx")
+pop_2 <- read_excel("urbanpop.xlsx", sheet = 1)
+
+
+# Πηγή δεδομένων: https://www.gapminder.org/
